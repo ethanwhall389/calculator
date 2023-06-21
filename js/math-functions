@@ -1,0 +1,19 @@
+function add () {
+    let final = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        final += arguments[i];
+    }
+    return final;
+}
+
+function subtract (a, b) {
+    return a - b;
+}
+
+function multiply (a, b) {
+    return a * b;
+}
+
+function divide (a, b) {
+    return a / b;
+}

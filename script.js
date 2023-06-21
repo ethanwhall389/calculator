@@ -1,22 +1,3 @@
-function add () {
-    let final = 0;
-    for (let i = 0; i < arguments.length; i++) {
-        final += arguments[i];
-    }
-    return final;
-}
-
-function subtract (a, b) {
-    return a - b;
-}
-
-function multiply (a, b) {
-    return a * b;
-}
-
-function divide (a, b) {
-    return a / b;
-}
 
 
 function operate (op, a, b) {
@@ -41,6 +22,8 @@ function operate (op, a, b) {
 
 
 // BUTTONS
+
+let bttns = document.querySelector('.bttn');
 
 let bttn0 = document.querySelector('.bttn0');
 let bttn1 = document.querySelector('.bttn1');
@@ -93,33 +76,37 @@ function storeVal () {
     operator = array[1];
 }
 
-bttn0.addEventListener('click', () => {updateDisplay('0')})
+bttns.addEventListener('click', (event) => {
+    let text = event.target.textContent
+    updateDisplay(text);
+    console.log(event);
+})
 
-bttn1.addEventListener('click', () => {updateDisplay('1')})
+// bttn1.addEventListener('click', () => {updateDisplay('1')})
 
-bttn2.addEventListener('click', () => {updateDisplay('2')})
+// bttn2.addEventListener('click', () => {updateDisplay('2')})
 
-bttn3.addEventListener('click', () => {updateDisplay('3')})
+// bttn3.addEventListener('click', () => {updateDisplay('3')})
 
-bttn4.addEventListener('click', () => {updateDisplay('4')})
+// bttn4.addEventListener('click', () => {updateDisplay('4')})
 
-bttn5.addEventListener('click', () => {updateDisplay('5')})
+// bttn5.addEventListener('click', () => {updateDisplay('5')})
 
-bttn6.addEventListener('click', () => {updateDisplay('6')})
+// bttn6.addEventListener('click', () => {updateDisplay('6')})
 
-bttn7.addEventListener('click', () => {updateDisplay('7')})
+// bttn7.addEventListener('click', () => {updateDisplay('7')})
 
-bttn8.addEventListener('click', () => {updateDisplay('8')})
+// bttn8.addEventListener('click', () => {updateDisplay('8')})
 
-bttn9.addEventListener('click', () => {updateDisplay('9')})
+// bttn9.addEventListener('click', () => {updateDisplay('9')})
 
-bttnAdd.addEventListener('click', () => {updateDisplay(' + '); storeVal();})
+// bttnAdd.addEventListener('click', () => {updateDisplay(' + '); storeVal();})
 
-bttnSub.addEventListener('click', () => {updateDisplay(' - '); storeVal()})
+// bttnSub.addEventListener('click', () => {updateDisplay(' - '); storeVal()})
 
-bttnMult.addEventListener('click', () => {updateDisplay(' x '); storeVal()})
+// bttnMult.addEventListener('click', () => {updateDisplay(' x '); storeVal()})
 
-bttnDivi.addEventListener('click', () => {updateDisplay(' / '); storeVal()})
+// bttnDivi.addEventListener('click', () => {updateDisplay(' / '); storeVal()})
 
 bttnEqual.addEventListener('click', () => {
     array = display.split(' ');
