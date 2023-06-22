@@ -1,3 +1,45 @@
+// Math functions, copied for codespaces
+
+function add () {
+    let final = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        final += arguments[i];
+    }
+    return final;
+}
+
+function subtract (a, b) {
+    return a - b;
+}
+
+function multiply (a, b) {
+    return a * b;
+}
+
+function divide (a, b) {
+    return a / b;
+}
+
+
+function operate (a, op, b) {
+    switch (op) {
+        case '+':
+            return add(a, b);
+            break;
+        case '-':
+            return subtract(a, b);
+            break;
+        case 'x':
+            return multiply(a, b);
+            break;
+        case '/':
+            return divide(a, b);
+            break;
+        default:
+            return 'There has been an error.';
+    }
+}
+
 
 
 
@@ -86,15 +128,16 @@ activeBttnWindow.addEventListener('click', (event) => {
 
 bttnClear.addEventListener('click', clearDisplay)
 
-let initial = 0;
 bttnEqual.addEventListener('click', () => {
+    let initial = 0;
     equations.push({'num': Number(numCatcher.join('')) });
-    for (let i = 0; i < equations.length; i++) {
-        if (i = 0) {
+    for (let i = 0; i < equations.length - 1; i++) {
+        if (i == 0) {
             initial = operate(equations[i].num, equations[i].op, equations[i+1].num)
-        } else if (i = equations.length - 1) {
-            console.log(`we are on index ${i} of ${equations.length} total indexes.`)
-            initial = operate(initial, equations[i-1].op, equations[i].num);
+        } else if (i == equations.length - 1) {
+            break;
+            // console.log(`we are on index ${i} of ${equations.length} total indexes.`)
+            // initial = operate(initial, equations[i-1].op, equations[i].num);
         } else {
             initial = operate(initial, equations[i].op, equations[i+1].num);
         }
