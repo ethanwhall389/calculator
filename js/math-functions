@@ -17,3 +17,24 @@ function multiply (a, b) {
 function divide (a, b) {
     return a / b;
 }
+
+
+function operate (a, op, b) {
+    switch (op) {
+        case '+':
+            return add(a, b);
+            break;
+        case '-':
+            return subtract(a, b);
+            break;
+        case 'x':
+            return multiply(a, b);
+            break;
+        case '/':
+            return divide(a, b);
+            break;
+        default:
+            return 'There has been an error.';
+    }
+}
+

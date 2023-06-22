@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Calculator</title>
-        <script defer src="script.js"></script>
+        <script defer src="index.js"></script>
         <script defer src="js/math-functions"></script>
     </head>
     <body>
@@ -11,22 +11,26 @@
             <div class="display">
             </div>
             <div class="container-inputs">
-                <button class="bttnDivi bttn">/</button>
-                <button class="bttnMult">x</button>
-                <button class="bttnSub">-</button>
-                <button class="bttnAdd">+</button>
-                <button class="bttnEqual">=</button>
-                <button class="bttn0">0</button>
-                <button class="bttn1">1</button>
-                <button class="bttn2">2</button>
-                <button class="bttn3">3</button>
-                <button class="bttn4">4</button>
-                <button class="bttn5">5</button>
-                <button class="bttn6">6</button>
-                <button class="bttn7">7</button>
-                <button class="bttn8">8</button>
-                <button class="bttn9">9</button>
-                <button class="bttnClear">Clear</button>
+                <div class="activeButtons">
+                    <button class="bttnDivi bttn">/</button>
+                    <button class="bttnMult bttn">x</button>
+                    <button class="bttnSub">-</button>
+                    <button class="bttnAdd">+</button>
+                    <button class="bttn0">0</button>
+                    <button class="bttn1">1</button>
+                    <button class="bttn2">2</button>
+                    <button class="bttn3">3</button>
+                    <button class="bttn4">4</button>
+                    <button class="bttn5">5</button>
+                    <button class="bttn6">6</button>
+                    <button class="bttn7">7</button>
+                    <button class="bttn8">8</button>
+                    <button class="bttn9">9</button>
+                </div>
+                <div class="specialButtons">
+                    <button class="bttnEqual">=</button>
+                    <button class="bttnClear">Clear</button>
+                </div>
             </div>
         </div>
     </body>
