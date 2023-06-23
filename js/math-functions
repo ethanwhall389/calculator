@@ -24,13 +24,13 @@ function operate (a, op, b) {
         case '+':
             return add(a, b);
             break;
-        case '-':
+        case '−':
             return subtract(a, b);
             break;
-        case 'x':
+        case String.fromCharCode(215):
             return multiply(a, b);
             break;
-        case '/':
+        case String.fromCharCode(247):
             return divide(a, b);
             break;
         default:
