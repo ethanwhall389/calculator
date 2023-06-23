@@ -6,15 +6,16 @@ let numBttns = document.querySelectorAll('.numBttn');
 let operatorBttns = document.querySelectorAll('.opBttn');
 let equalsBttn = document.querySelector('.equalsBttn');
 let clearBttn = document.querySelector('.clearBttn');
+let decimalBttn = document.querySelector('.decimalBttn');
 let mainDisplay = document.querySelector('.displayMain');
 let smallDisplay = document.querySelector('.displaySmall');
 let mainDisplayPara = document.createElement('p');
 let mainDisplayText = '0';
-mainDisplayPara.textContent = mainDisplayText;
-mainDisplay.appendChild(mainDisplayPara);
+    mainDisplayPara.textContent = mainDisplayText;
+    mainDisplay.appendChild(mainDisplayPara);
 let smallDisplayPara = document.createElement('p');
 let smallDisplayText = '';
-smallDisplay.appendChild(smallDisplayPara);
+    smallDisplay.appendChild(smallDisplayPara);
 
 numBttns.forEach( (bttn) => {
     bttn.addEventListener('click', () =>  checkOperator(bttn));
@@ -36,12 +37,33 @@ clearBttn.addEventListener('click', () => {
     operandTwo = ''
 })
 
+
+decimalBttn.addEventListener('click', () => {
+    if (operator.length > 0) {
+        //we have an operator-- go to second number
+        if (operandTwo.includes('.')) return; 
+        else {
+            operandTwo += decimalBttn.textContent;
+            updateMainDisplay(operandTwo);
+        }
+    } else {
+        //we do not have an operator-- go to first number
+        if (operandOne.includes('.')) return; 
+        else {
+            operandOne += decimalBttn.textContent;
+            updateMainDisplay(operandOne);
+        }
+    }
+})
+
+
+
 function finalEvaluate () {
     if (operator.length > 0 && operandTwo.length > 0) {
         // We have enough for a full equation: operate on them.
         let oldOperandOne = operandOne;
         let equalSign = '='
-        operandOne = operate(Number(operandOne), operator, Number(operandTwo));
+        operandOne = roundAnswer(operate(Number(operandOne), operator, Number(operandTwo)));
         updateSmallDisplay(oldOperandOne, operator, operandTwo, equalSign, operandOne);
         updateMainDisplay(operandOne);
         operandTwo = '';
@@ -54,7 +76,7 @@ function finalEvaluate () {
 function checkForEquation (bttn) {
     if (operator.length > 0) {
         // We have enough for a full equation: operate on them.
-        operandOne = operate(Number(operandOne), operator, Number(operandTwo));
+        operandOne = roundAnswer(operate(Number(operandOne), operator, Number(operandTwo)));
         updateMainDisplay(operandOne);
         operator = bttn.textContent;
         operandTwo = '';
@@ -66,6 +88,9 @@ function checkForEquation (bttn) {
     }
 }
 
+function roundAnswer (number) {
+    return Math.round(number * 1000) / 1000;
+}
 
 function checkOperator (bttn) {
     if (operator.length == 0) {
