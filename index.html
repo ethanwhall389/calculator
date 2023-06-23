@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-        <meta charset="UTF-8">
-        <title>Calculator</title>
-        <script defer src="index.js"></script>
-        <script src="../js/math-functions"></script>
-    </head>
-    <body>
-        <div class="container-main">
-            <div class="display">
-            </div>
-            <div class="container-inputs">
-                <div class="activeButtons">
-                    <button class="bttnDivi bttn">/</button>
-                    <button class="bttnMult bttn">x</button>
-                    <button class="bttnSub">-</button>
-                    <button class="bttnAdd">+</button>
-                    <button class="bttn0">0</button>
-                    <button class="bttn1">1</button>
-                    <button class="bttn2">2</button>
-                    <button class="bttn3">3</button>
-                    <button class="bttn4">4</button>
-                    <button class="bttn5">5</button>
-                    <button class="bttn6">6</button>
-                    <button class="bttn7">7</button>
-                    <button class="bttn8">8</button>
-                    <button class="bttn9">9</button>
-                </div>
-                <div class="specialButtons">
-                    <button class="bttnEqual">=</button>
-                    <button class="bttnClear">Clear</button>
-                </div>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script defer src="index.js"></script>
+    <script src="./js/math-functions"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="containerMain">
+        <div class="display">                
+            <div class="displayMain"></div>
+            <div class="displaySmall"></div>
         </div>
-    </body>
+        <div class="bttnContainer">
+            <button class="bttn numBttn">0</button>
+            <button class="bttn numBttn">1</button>
+            <button class="bttn numBttn">2</button>
+            <button class="bttn numBttn">3</button>
+            <button class="bttn numBttn">4</button>
+            <button class="bttn numBttn">5</button>
+            <button class="bttn numBttn">6</button>
+            <button class="bttn numBttn">7</button>
+            <button class="bttn numBttn">8</button>
+            <button class="bttn numBttn">9</button>
+            <button class="bttn opBttn">+</button>
+            <button class="bttn opBttn">−</button>
+            <button class="bttn opBttn">×</button>
+            <button class="bttn opBttn">&divide;</button>
+            <button class="bttn equalsBttn">=</button>
+            <button class="bttn clearBttn">Clear</button>
+        </div>
+    </div>
+</body>
 </html>

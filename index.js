@@ -1,174 +1,38 @@
-// Math functions, copied for codespaces
+let operandOne = '';
+let operandTwo = '';
+let operator = '';
 
-function add () {
-    let final = 0;
-    for (let i = 0; i < arguments.length; i++) {
-        final += arguments[i];
-    }
-    return final;
-}
-
-function subtract (a, b) {
-    return a - b;
-}
-
-function multiply (a, b) {
-    return a * b;
-}
-
-function divide (a, b) {
-    return a / b;
-}
+let numBttns = document.querySelectorAll('.numBttn');
+let operatorBttns = document.querySelectorAll('.opBttn');
+let equalsBttn = document.querySelector('.equalsBttn');
+let clearBttn = document.querySelector('.clearBttn');
+let mainDisplay = document.querySelector('.displayMain');
+let smallDisplay = document.querySelector('.displaySmall');
 
 
-function operate (a, op, b) {
-    switch (op) {
-        case '+':
-            return add(a, b);
-            break;
-        case '-':
-            return subtract(a, b);
-            break;
-        case 'x':
-            return multiply(a, b);
-            break;
-        case '/':
-            return divide(a, b);
-            break;
-        default:
-            return 'There has been an error.';
-    }
-}
-
-
-
-
-
-
-// BUTTONS
-
-
-let bttnEqual = document.querySelector('.bttnEqual');
-let bttnClear = document.querySelector('.bttnClear');
-
-let displayDiv = document.querySelector('.display');
-let display = '';
-
-let numCatcher = [];
-let operator;
-let num2;
-
-let equations = [];
-
-let activeBttnWindow = document.querySelector('.activeButtons');
-
-
-function updateDisplay (value) {
-    p = document.createElement('p');
-    p.textContent = value;
-    displayDiv.appendChild(p);
-
-    display += value;
-
-    numCatcher.push(value);
-
-    console.log(display);
-    console.log(numCatcher)
-}
-
-function clearDisplay () {
-    while (displayDiv.firstChild) {
-        displayDiv.removeChild(displayDiv.lastChild);
-    }
-    display = '';
-    numCatcher = [];
-    equations.length = 0;
-}
-
-
-function storeVal () {
-    array = display.split(' ');
-    console.log(array)
-    num1 = array[0];
-    operator = array[1];
-}
-
-
-activeBttnWindow.addEventListener('click', (event) => {
-    if (event.target.nodeName === 'BUTTON') {
-        let bttnText = event.target.textContent
-        updateDisplay(bttnText);
-        switch (event.target.textContent) {
-            case '/':
-                numCatcher.pop();
-                equations.push({'num': Number(numCatcher.join('')), 'op': '/'});
-                numCatcher = [];
-                break;
-            case 'x':
-                numCatcher.pop();
-                equations.push({'num': Number(numCatcher.join('')), 'op': 'x'});
-                numCatcher = [];
-                break;
-            case '-':
-                numCatcher.pop();
-                equations.push({'num': Number(numCatcher.join('')), 'op': '-'});
-                numCatcher = [];
-                break;
-            case '+':
-                numCatcher.pop();
-                equations.push({'num': Number(numCatcher.join('')), 'op': '+'});
-                numCatcher = [];
-                break;
-        }
-    }
-    return;
+numBttns.forEach( (bttn) => {
+    bttn.addEventListener('click', () =>  checkOperator(bttn));
 })
 
-// add each to an array, loop through the entire array and do math
 
-bttnClear.addEventListener('click', clearDisplay)
-
-bttnEqual.addEventListener('click', () => {
-    let initial = 0;
-    equations.push({'num': Number(numCatcher.join('')) });
-    for (let i = 0; i < equations.length - 1; i++) {
-        if (i == 0) {
-            initial = operate(equations[i].num, equations[i].op, equations[i+1].num)
-        } else if (i == equations.length - 1) {
-            break;
-            // console.log(`we are on index ${i} of ${equations.length} total indexes.`)
-            // initial = operate(initial, equations[i-1].op, equations[i].num);
-        } else {
-            initial = operate(initial, equations[i].op, equations[i+1].num);
-        }
+function checkOperator (bttn) {
+    if (operator.length == 0) {
+        // operator does not contain content
+        operandOne += bttn.textContent;
+        updateMainDisplay(operandOne);
+    } else {
+        // operator contains content
     }
-    console.log(`final = ${initial}`);
-    return initial;
-})
+}
 
-// bttn1.addEventListener('click', () => {updateDisplay('1')})
-
-// bttn2.addEventListener('click', () => {updateDisplay('2')})
-
-// bttn3.addEventListener('click', () => {updateDisplay('3')})
-
-// bttn4.addEventListener('click', () => {updateDisplay('4')})
-
-// bttn5.addEventListener('click', () => {updateDisplay('5')})
-
-// bttn6.addEventListener('click', () => {updateDisplay('6')})
-
-// bttn7.addEventListener('click', () => {updateDisplay('7')})
-
-// bttn8.addEventListener('click', () => {updateDisplay('8')})
-
-// bttn9.addEventListener('click', () => {updateDisplay('9')})
-
-// bttnAdd.addEventListener('click', () => {updateDisplay(' + '); storeVal();})
-
-// bttnSub.addEventListener('click', () => {updateDisplay(' - '); storeVal()})
-
-// bttnMult.addEventListener('click', () => {updateDisplay(' x '); storeVal()})
-
-// bttnDivi.addEventListener('click', () => {updateDisplay(' / '); storeVal()})
-
+function updateMainDisplay (textToDisplay) {
+    let text;
+    // remove current display
+    if (text.textContent) {
+        mainDisplay.removeChild(text);
+    }
+    // update
+    text = document.createElement('p');
+    text.textContent = textToDisplay;
+    mainDisplay.appendChild(text);
+}
