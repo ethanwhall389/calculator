@@ -12,3 +12,7 @@ body {
     display: flexbox;
     flex-direction: row;
 }
+
+.bttnContainer {
+    display: flex;
+}
