@@ -8,45 +8,66 @@
     <script defer src="js/functions.js"></script>
     <script defer src="js/math-functions.js"></script>
     <script defer src="js/color-modes.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="light-and-dark-mode.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode-switch.css">
 </head>
 <body>
-    <button class="switch-color-mode">Switch color mode</button>
+    <div class="header">
+        <div class="header-info">
+            <h1>Simple Calculator</h1>
+        </div>
+        <div class="modeSwitch">
+            <!--Dark mode toggle switch-->
+            <p>Dark Mode</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
     <div class="containerMain">
-        <div class="displayContainer">                
-            <div class="displaySmall"></div>
-            <div class="displayMain"></div>
+        <div class="calcMain">
+            <div class="displayContainer">                
+                <div class="displaySmall"></div>
+                <div class="displayMain"></div>
+            </div>
+            <div class="clearContainer">
+                <button class="bttn clearBttn">Clear</button>
+                <button class="bttn deleteBttn"><<</button>
+            </div>
+            <div class="bttnContainer">
+                <div>
+                    <button class="bttn numBttn">7</button>
+                    <button class="bttn numBttn">8</button>
+                    <button class="bttn numBttn">9</button>
+                    <button class="bttn opBttn">&#247<!--This is the ASCII code for the division symbol--></button>
+                </div>
+                <div>
+                    <button class="bttn numBttn">4</button>
+                    <button class="bttn numBttn">5</button>
+                    <button class="bttn numBttn">6</button>
+                    <button class="bttn opBttn">&#215<!-- This is the ASCII code for the multiply symbol--></button>
+                </div>
+                <div>                
+                    <button class="bttn numBttn">1</button>
+                    <button class="bttn numBttn">2</button>
+                    <button class="bttn numBttn">3</button>
+                    <button class="bttn opBttn">+</button>
+                </div>
+                <div>
+                    <button class="bttn numBttn">0</button>
+                    <button class="bttn decimalBttn">.</button>
+                    <button class="bttn equalsBttn">=</button>
+                    <button class="bttn opBttn">−</button>
+                </div>
+            </div>
         </div>
-        <div class="clearContainer">
-            <button class="bttn clearBttn">Clear</button>
-            <button class="bttn deleteBttn"><<</button>
-        </div>
-        <div class="bttnContainer">
-            <div>
-                <button class="bttn numBttn">7</button>
-                <button class="bttn numBttn">8</button>
-                <button class="bttn numBttn">9</button>
-                <button class="bttn opBttn">&#247<!--This is the ASCII code for the division symbol--></button>
-            </div>
-            <div>
-                <button class="bttn numBttn">4</button>
-                <button class="bttn numBttn">5</button>
-                <button class="bttn numBttn">6</button>
-                <button class="bttn opBttn">&#215<!-- This is the ASCII code for the multiply symbol--></button>
-            </div>
-            <div>                
-                <button class="bttn numBttn">1</button>
-                <button class="bttn numBttn">2</button>
-                <button class="bttn numBttn">3</button>
-                <button class="bttn opBttn">+</button>
-            </div>
-            <div>
-                <button class="bttn numBttn">0</button>
-                <button class="bttn decimalBttn">.</button>
-                <button class="bttn equalsBttn">=</button>
-                <button class="bttn opBttn">−</button>
-            </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <p>Designed by Ethan Hall, 2023</p>
+            <a href="https://github.com/ethanwhall389/calculator" target="_blank">Source Code</a>
+            <a href="https://github.com/ethanwhall389" target="_blank">Github</a>
         </div>
     </div>
 </body>
