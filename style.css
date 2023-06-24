@@ -1,9 +1,23 @@
+:root {
+    --main-text-color: black;
+    --main-bg-color: rgb(253, 253, 250);
+    --main-display-color: rgb(253, 253, 250);
+    --main-calc-color: rgb(253, 189, 57);
+    --main-bttn-color: rgb(247, 247, 247);
+    --main-bttn-hover: rgb(226, 226, 226);
+    --operator-bttns-color: black;
+    --operator-bttns-text-color: white;
+    --equals-bttn-color: rgb(135, 229, 119);
+    --clear-bttn-color: rgb(230, 65, 36);
+
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(6, 21, 41);
-    color: azure;
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
     padding: 0;
     margin: 0;
 }
@@ -11,6 +25,8 @@ body {
 .bttn {
     border: none;
     padding: 15px 10px;
+    background: var(--main-bttn-color);
+    transition: 80ms;
     font-weight: 600;
     border-radius: 8px;
     height: 40px;
@@ -21,17 +37,72 @@ body {
     flex-grow: 1;
 }
 
+.bttn:hover {
+    background: var(--main-bttn-hover);
+}
+
 .opBttn, .decimalBttn {
     font-size: 18px;
     font-weight: 600;
 }
 
+.opBttn {
+    background: var(--operator-bttns-color);
+    color: var(--operator-bttns-text-color);
+}
+
+.equalsBttn{
+    background: var(--equals-bttn-color);
+}
+
+.clearBttn {
+    background: var(--clear-bttn-color);
+    flex-grow: 2;
+}
+.deleteBttn {
+    flex-grow: 1;
+}
+
+.displayContainer {
+    background: var(--main-display-color);
+    height: 70px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.displayMain {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.displaySmall {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.displayMain > p {
+    margin: 0;
+}
+
+.displaySmall > p {
+    margin: 0;
+}
+
+
 .containerMain {
     display: flexbox;
     flex-grow: 1;
-    max-width: 250px;
-    background: black;
-    padding: 70px 10px 10px 10px;
+    max-width: 200px;
+    background: var(--main-calc-color);
+    padding: 20px 10px 10px 10px;
 }
 
 .bttnContainer {
@@ -56,9 +127,3 @@ body {
     gap: 3px;
 }
 
-.clearBttn {
-    flex-grow: 2;
-}
-.deleteBttn {
-    flex-grow: 1;
-}
