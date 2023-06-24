@@ -53,4 +53,12 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 3px;
+    gap: 3px;
+}
+
+.clearBttn {
+    flex-grow: 2;
+}
+.deleteBttn {
+    flex-grow: 1;
 }

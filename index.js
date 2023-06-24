@@ -7,6 +7,8 @@ let operatorBttns = document.querySelectorAll('.opBttn');
 let equalsBttn = document.querySelector('.equalsBttn');
 let clearBttn = document.querySelector('.clearBttn');
 let decimalBttn = document.querySelector('.decimalBttn');
+let deleteBttn = document.querySelector('.deleteBttn');
+
 let mainDisplay = document.querySelector('.displayMain');
 let smallDisplay = document.querySelector('.displaySmall');
 let mainDisplayPara = document.createElement('p');
@@ -17,7 +19,9 @@ let smallDisplayPara = document.createElement('p');
 let smallDisplayText = '';
     smallDisplay.appendChild(smallDisplayPara);
 
-numBttns.forEach( (bttn) => {
+// EVENT LISTENERS
+
+    numBttns.forEach( (bttn) => {
     bttn.addEventListener('click', () =>  checkOperator(bttn));
 })
 
@@ -56,119 +60,9 @@ decimalBttn.addEventListener('click', () => {
     }
 })
 
-
-
-function finalEvaluate () {
-    if (operator.length > 0 && operandTwo.length > 0) {
-        // We have enough for a full equation: operate on them.
-        let oldOperandOne = operandOne;
-        let equalSign = '='
-        operandOne = roundAnswer(operate(Number(operandOne), operator, Number(operandTwo)));
-        updateSmallDisplay(oldOperandOne, operator, operandTwo, equalSign, operandOne);
-        updateMainDisplay(operandOne);
-        operandTwo = '';
-    } else if (operandTwo.length == 0) {
-        // we don't have enough for a full equation
-        return;
-    }
-}
-
-function checkForEquation (bttn) {
-    if (operator.length > 0) {
-        // We have enough for a full equation: operate on them.
-        operandOne = roundAnswer(operate(Number(operandOne), operator, Number(operandTwo)));
-        updateMainDisplay(operandOne);
-        operator = bttn.textContent;
-        operandTwo = '';
-        updateSmallDisplay(operandOne, operator);
-    } else {
-        // we don't have enough for a full equation
-        operator = bttn.textContent;
-        updateSmallDisplay(operandOne, operator);
-    }
-}
-
-function roundAnswer (number) {
-    return Math.round(number * 1000) / 1000;
-}
-
-function checkOperator (bttn) {
-    if (operator.length == 0) {
-        // operator does not contain content
-        operandOne += bttn.textContent;
-        updateMainDisplay(operandOne);
-    } else {
-        // operator contains content
-        operandTwo += bttn.textContent;
-        updateMainDisplay(operandTwo);
-    }
-}
-
-function updateMainDisplay (textToDisplay) {
-    // remove current display
-    if (mainDisplayText.length > 0) {
-        mainDisplayText = '';
-    }
-    // update
-    mainDisplayText = textToDisplay;
-    mainDisplayPara.textContent = mainDisplayText;
-}
-
-function updateSmallDisplay () {
-    // remove current display
-    if (smallDisplayText.length > 0) {
-        smallDisplayText = '';
-    }
-    // update
-    for (let i = 0; i < arguments.length; i++) {
-        smallDisplayText += `${arguments[i]} `;
-    }
-    smallDisplayPara.textContent = smallDisplayText;
-}
+deleteBttn.addEventListener('click', () => {deleteChar(); console.log('click')});
 
 
 
-// MATH FUNCTIONS SINCE CODESPACES
-
-function add () {
-    let final = 0;
-    for (let i = 0; i < arguments.length; i++) {
-        final += arguments[i];
-    }
-    return final;
-}
-
-function subtract (a, b) {
-    return a - b;
-}
-
-function multiply (a, b) {
-    return a * b;
-}
-
-function divide (a, b) {
-    if (b === 0) {
-        return ('You can\'t divide by 0!');
-    }
-    return a / b;
-}
 
 
-function operate (a, op, b) {
-    switch (op) {
-        case '+':
-            return add(a, b);
-            break;
-        case '−':
-            return subtract(a, b);
-            break;
-        case String.fromCharCode(215):
-            return multiply(a, b);
-            break;
-        case String.fromCharCode(247):
-            return divide(a, b);
-            break;
-        default:
-            return 'There has been an error.';
-    }
-}

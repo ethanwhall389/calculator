@@ -15,6 +15,9 @@ function multiply (a, b) {
 }
 
 function divide (a, b) {
+    if (b === 0) {
+        return ('You can\'t divide by 0!');
+    }
     return a / b;
 }
 
@@ -37,4 +40,3 @@ function operate (a, op, b) {
             return 'There has been an error.';
     }
 }
-
