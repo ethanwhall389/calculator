@@ -1,1 +1,2 @@
 # calculator
+This was the final project for the Foundations course of The Odin Project. The instructions were conceptual only, all of the development had to be configured by me. This project uses HTML, CSS, and vanilla Javascript. It was quite challenging but I enjoyed advancing my Javascript skills through this project.
